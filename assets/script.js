@@ -23,6 +23,7 @@ const arrowRight = document.querySelector(".arrow_right");
 const containerDots = document.querySelector(".dots");
 const imagePicture = document.querySelector(".banner-img");
 const text = document.querySelector("p");
+let counter = 0;
 
 arrowLeft.addEventListener("click", precedenteSlide);
 arrowRight.addEventListener("click", suivanteSlide);
@@ -36,8 +37,6 @@ for (let i = 0; i < slides.length; i += 1) {
 const dots = document.querySelectorAll(".dot");
 dots[0].classList.add("dot_selected");
 
-let counter = 0;
-
 function suivanteSlide() {
   const newCounter = counter < slides.length - 1 ? counter + 1 : 0;
   carrousel(counter, newCounter);
@@ -48,6 +47,12 @@ function precedenteSlide() {
   carrousel(counter, newCounter);
 }
 
+/**
+ * La fonction carrousel permet de mettre à jour le slider du dessus afin
+ * que l'image, le texte et les bulles soient bien sur le même niveau du tableau.
+ * @param {Number} oldCounter
+ * @param {Number} newCounter
+ */
 function carrousel(oldCounter, newCounter) {
   counter = newCounter;
   dots[oldCounter].classList.remove("dot_selected");
