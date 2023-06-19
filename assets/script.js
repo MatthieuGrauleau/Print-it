@@ -37,11 +37,18 @@ for (let i = 0; i < slides.length; i += 1) {
 const dots = document.querySelectorAll(".dot");
 dots[0].classList.add("dot_selected");
 
+/**
+ * La fonction precendente slide permet au click de faire déffiler le carrousel sur le côté droit et d'aller à la slide suivante en bouclant à l'infini.
+ * @param {Function} suivanteSlide
+ */
 function suivanteSlide() {
   const newCounter = counter < slides.length - 1 ? counter + 1 : 0;
   carrousel(counter, newCounter);
 }
-
+/**
+ * La fonction precendente slide permet au click de faire déffiler le carrousel sur le côté gauche et de revenir à la slide précédente en bouclant à l'infini.
+ * @param {Function} precedenteSlide
+ */
 function precedenteSlide() {
   const newCounter = counter === 0 ? slides.length - 1 : counter - 1;
   carrousel(counter, newCounter);
